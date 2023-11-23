@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Veiculo">
+    <!-- Consulta de Seleção -->
+    <select id="selectAll" resultClass="br.com.detran.model.Veiculo">
+        SELECT * FROM treinamento.veiculo;
+    </select>
+
+    <!-- Consulta de Inserção -->
+    <insert id="insert" parameterClass="br.com.detran.model.Veiculo">
+        INSERT INTO treinamento.veiculo (placa, renavam, id_prop) VALUES (#placa#, #renavam#, #id_prop#);
+    </insert>
+
+    <!-- Consulta de Atualização -->
+    <update id="update" parameterClass="br.com.detran.model.Veiculo">
+        UPDATE treinamento.veiculo SET placa = #placa#, renavam = #renavam#, id_prop= #id_prop# WHERE id = #id#;
+    </update>
+
+    <!-- Consulta de Exclusão -->
+    <delete id="delete" parameterClass="java.lang.Integer">
+        DELETE FROM treinamento.veiculo WHERE id = #value#;
+    </delete>
+    <select id="findById" resultClass="br.com.detran.model.Veiculo" parameterClass="java.lang.Integer">
+    	SELECT * FROM treinamento.veiculo WHERE id = #id#;
+    </select>
+    <select id="findByVeiculoPlaca" resultClass="br.com.detran.model.Veiculo" parameterClass="java.lang.String">
+    	select * from treinamento.veiculo v where placa = #placa#;
+    </select>
+    <select id="findByPlaca" resultClass="br.com.detran.model.Veiculo" parameterClass="java.lang.String">
+    	select * from treinamento.veiculo where placa ilike '%' || #placa# || '%';
+    </select>
+    <select id="findByPropId" resultClass="br.com.detran.model.Veiculo" parameterClass="java.lang.Integer">
+    	select v.id ,v.placa ,v.renavam  from treinamento.veiculo v where v.id_prop = #value#;
+    </select>
+    <select id="findPropPlaca" resultClass="br.com.detran.model.VeiculoProprietario" parameterClass="java.lang.String">
+    	select * from treinamento.buscar_placa(#placa#);
+    </select>
+</sqlMap>

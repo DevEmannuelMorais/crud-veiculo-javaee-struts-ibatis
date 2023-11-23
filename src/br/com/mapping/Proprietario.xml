@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+
+<sqlMap namespace="Proprietario">
+    <!-- Consulta de Seleção -->
+    <select id="selectAll" resultClass="br.com.detran.model.Proprietario">
+        select * from treinamento.proprietario;
+    </select>
+
+    <!-- Consulta de Inserção -->
+    <insert id="insert" parameterClass="br.com.detran.model.Proprietario">
+        insert into treinamento.proprietario (nome, cpf_cnpj, endereco) values (#nome#, #cpf_cnpj#, #endereco#);
+    </insert>
+
+    <!-- Consulta de Atualização -->
+    <update id="update" parameterClass="br.com.detran.model.Proprietario">
+        UPDATE treinamento.proprietario SET nome = #nome#, cpf_cnpj = #cpf_cnpj#, endereco= #endereco# WHERE id = #id#;
+    </update>
+
+    <!-- Consulta de Exclusão -->
+    <delete id="delete" parameterClass="java.lang.Integer">
+        DELETE FROM treinamento.proprietario WHERE id = #value#;
+    </delete>
+    <!-- Consulta de Seleção por Id -->
+    <select id="findById" resultClass="br.com.detran.model.Proprietario" parameterClass="java.lang.Integer">
+    	SELECT * FROM treinamento.proprietario WHERE id = #id#;
+    </select>
+    <!-- Consulta de Seleção por nome-->
+   	<select id="findByNomeOrCpf" resultClass="br.com.detran.model.Proprietario" parameterClass="java.util.Map">
+    	select * from treinamento.proprietario where nome ilike '%' || #nome# || '%' or cpf_cnpj ilike '%' || #cpf# || '%';
+    </select>
+    <select id="selectCpf" resultClass="br.com.detran.model.Proprietario" parameterClass="java.lang.String">
+    	select * from treinamento.proprietario where cpf_cnpj = #cpf_cnpj#;
+    </select>
+    
+</sqlMap>
+

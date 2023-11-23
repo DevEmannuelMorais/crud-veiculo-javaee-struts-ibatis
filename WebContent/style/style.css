@@ -1,0 +1,63 @@
+@charset "UTF-8";
+		body {
+            font-family: Arial, sans-serif;
+            
+        }
+       .erro {
+    color: red !important;
+    font-weight: bold;
+}
+
+        h1 {
+            color: black;
+        }
+
+        form {
+            border: 1px solid black;
+            padding: 20px;
+            width: 300px;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            background-color: black;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #333;
+        }
+
+        /* a {
+            color: black;
+            text-decoration: blink;
+        } */
+        div {
+    background-color: #ffcccc ; /* Fundo vermelho claro */
+    border: 1px solid #ff0000 ; /* Borda vermelha */
+    padding: 10px; /* Espaçamento interno */
+    margin-bottom: 10px ; /* Espaçamento inferior */
+    color: #ff0000 ; /* Texto vermelho */
+    font-weight: bold;
+}
+
+        
+        

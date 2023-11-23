@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+    <form-beans>
+        <form-bean name="propForm" type="br.com.detran.model.form.ProprietarioForm"/>
+        <form-bean name="veicForm" type="br.com.detran.model.form.VeiculoForm"/>
+    </form-beans>
+    
+
+    <action-mappings>
+    
+    <!-- PROPRIETARIO -->
+        <action path="/listarProprietario" type="br.com.detran.action.proprietario.ListarProprietarioAction" name="propForm" scope="request">
+            <forward name="listarProprietarios" path="/listarProprietario.jsp"/>
+            <forward name="failure" path="/index.jsp"/>
+        </action>
+        <action path="/cadastrarProprietario" type="br.com.detran.action.proprietario.CadastrarProprietarioAction" name="propForm" scope="request">
+            <forward name="success" path="/register.jsp"/>
+        </action>
+        <action path="/deleteProprietario" type="br.com.detran.action.proprietario.DeletarProprietarioAction" name="propForm" scope="request">
+            <forward name="delete" path="/index.jsp"/>
+        </action>
+        <action path="/updateProprietario" type="br.com.detran.action.proprietario.UpdateProprietarioAction" name="propForm" scope="request">
+            <forward name="update" path="/index.jsp"/>
+            <forward name="getBy" path="/register.jsp"/>
+        </action>
+        <action path="/gerarRelatorioProprietario" type="br.com.detran.action.proprietario.GerarRelatorioProprietarioAction" name="propForm" scope="request">
+            <forward name="sucess" path="/listarProprietario.jsp"/>
+        </action>
+        
+          <!-- VEICULO -->
+        <action path="/listarVeiculos" type="br.com.detran.action.veiculo.ListarVeiculoAction" name="veicForm" scope="request">
+            <forward name="listarVeiculos" path="/listarVeiculos.jsp"/>
+            <forward name="veiculos" path="/veiculosDoProprietario.jsp"/>
+          
+       
+        
+                   <forward name="veiculosProp" path="/dadosProprietarioEVeiculo.jsp"/>
+        </action>
+        <action path="/cadastrarVeiculo" type="br.com.detran.action.veiculo.CadastrarVeiculoAction" name="veicForm" scope="request">
+            <forward name="success" path="/registerVeiculo.jsp"/>
+        </action>
+        <action path="/deleteVeiculo" type="br.com.detran.action.veiculo.DeletarVeiculoAction" name="veicForm" scope="request">
+            <forward name="delete" path="/index.jsp"/>
+        </action>
+        <action path="/updateVeiculo" type="br.com.detran.action.veiculo.UpdateVeiculoAction" name="veicForm" scope="request">
+            <forward name="update" path="/index.jsp"/>
+            <forward name="getBy" path="/registerVeiculo.jsp"/>
+        </action>
+        <action path="/gerarRelatorioVeiculo" type="br.com.detran.action.veiculo.GerarRelatorioVeiculoAction" name="veicForm" scope="request">
+             <forward name="listarVeiculos" path="/listarVeiculos.jsp"/>
+        </action>
+
+        
+    </action-mappings>
+</struts-config>
